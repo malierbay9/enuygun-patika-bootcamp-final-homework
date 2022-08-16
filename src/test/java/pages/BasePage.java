@@ -2,10 +2,13 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.DriverFactory;
+
+import java.util.List;
 
 
 public class BasePage {
@@ -38,6 +41,11 @@ public class BasePage {
         return driver.findElement(locator).getText();
     }
 
+    protected void moveToElement(By locator){
+        waitElementVisible(locator);
+        actions.moveToElement(driver.findElement(locator)).perform();
+    }
+
     public void waitElementVisible(By locator){
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
     }
@@ -45,6 +53,19 @@ public class BasePage {
     public void waitElementClickable(By locator){
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
+    public void waitElementInvisible(By locator){
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
+    public void waitElementsVisible(By locator){
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
+
+    public void waitElementPresent(By locator){
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
 
 
 

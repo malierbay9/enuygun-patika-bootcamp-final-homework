@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.LocalDate;
 
 
 public class Helper {
@@ -33,6 +34,18 @@ public class Helper {
         WebElement element1 = driver.findElement(element);
         //element1.click();
         element1.sendKeys(keysToSend);
+    }
+
+    public LocalDate departureDateCalculator(int days){
+
+        LocalDate departureDate = LocalDate.now().plusDays(days);
+
+        return departureDate;
+    }
+
+    public LocalDate returnDateCalculator(LocalDate departure,int days){
+
+        return departure.plusDays(days);
     }
 
 }

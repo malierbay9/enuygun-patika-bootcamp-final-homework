@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import pages.HomePage;
+import pages.home_page.HomePage;
 
 public class BaseTest {
 

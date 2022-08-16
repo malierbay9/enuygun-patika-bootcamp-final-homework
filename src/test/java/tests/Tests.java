@@ -9,10 +9,8 @@ public class Tests extends BaseTest{
 
         homePage.selectFrom(from)
                 .selectTo(to)
-                .submitDepartureDate(departureDay)
-                .selectDepartureDate()
-                .submitReturnDate(returnDay)
-                .selectReturnDate()
+                .submitAndSelectDepartureDate(departureDay)
+                .submitAndSelectReturnDate(returnDay)
                 .findTicket();
 
     }

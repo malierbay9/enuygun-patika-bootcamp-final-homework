@@ -22,6 +22,12 @@ public class HomePage extends BasePage {
         dateSection = new DateSection();
     }
 
+    public HomePage goTo(String url) {
+        driver.get(url);
+
+        return this;
+    }
+
     public HomePage selectFrom(String from){
 
         sendKeys(destinationSection.getFromTextBox(), from);

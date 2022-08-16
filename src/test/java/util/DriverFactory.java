@@ -41,7 +41,6 @@ public class DriverFactory {
             throw new WrongDriverTypeException();
         }
 
-        driver.get(properties.getProperty("url"));
         driver.manage().timeouts().implicitlyWait(impWait, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(pageWait,TimeUnit.SECONDS);
 

@@ -7,11 +7,19 @@ public class Tests extends BaseTest{
     @Test
     public void trial(){
 
-        homePage.selectFrom(from)
+        homePage.goTo(url)
+                .selectFrom(from)
                 .selectTo(to)
                 .submitAndSelectDepartureDate(departureDay)
                 .submitAndSelectReturnDate(returnDay)
                 .findTicket();
+
+        flightsPage.chooseDirectFlight(isDirect)
+                    .chooseProvider(provider)
+                    .expandMore()
+                    .chooseDeparture()
+                    .chooseReturn()
+                    .selectTicket();
 
     }
 

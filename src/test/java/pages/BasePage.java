@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.DriverFactory;
@@ -11,9 +12,11 @@ public class BasePage {
 
     protected static WebDriver driver = DriverFactory.getDriver();
     protected WebDriverWait wait;
+    protected Actions actions;
 
     public BasePage(){
         wait = new WebDriverWait(driver, 10L);
+        actions = new Actions(driver);
     }
 
     protected void click(By locator) {

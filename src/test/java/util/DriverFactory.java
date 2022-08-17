@@ -2,6 +2,7 @@ package util;
 
 import exceptions.WrongDriverTypeException;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import models.ConfigProperties;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,11 +15,11 @@ import java.util.concurrent.TimeUnit;
 public class DriverFactory {
 
     private static WebDriver driver;
-    private static Properties properties = PropertyReader.getProperties();
-    private static String browserName = properties.getProperty("drivertype");
+    private static ConfigProperties properties = PropertyReader.getProperties();
+    private static String browserName = properties.getDrivertype();
 
-    private static int impWait = Integer.parseInt(properties.getProperty("implicitlyWait"));
-    private static int pageWait = Integer.parseInt(properties.getProperty("pageLoadTimeout"));
+    private static int impWait = properties.getImplicitlyWait();
+    private static int pageWait = properties.getPageLoadTimeout();
     private static MutableCapabilities capabilities = DriverOptions.getOptions();
 
 
@@ -38,7 +39,7 @@ public class DriverFactory {
             driver.manage().window().maximize();
         }
         else{
-            throw new WrongDriverTypeException();
+
         }
 
         driver.manage().timeouts().implicitlyWait(impWait, TimeUnit.SECONDS);

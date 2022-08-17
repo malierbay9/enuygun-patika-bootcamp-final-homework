@@ -1,5 +1,6 @@
 package util;
 
+import models.ConfigProperties;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
@@ -15,10 +16,9 @@ public class DriverOptions {
     private static FirefoxOptions firefoxOptions = new FirefoxOptions();
     private static EdgeOptions edgeOptions = new EdgeOptions();
 
-    private static Properties properties = PropertyReader.getProperties();
-    private static String driverType = properties.getProperty("drivertype");
-
-    private static List<String> args = Arrays.asList(properties.get("arguments").toString().split(","));
+    private static ConfigProperties properties = PropertyReader.getProperties();
+    private static String driverType = properties.getDrivertype();
+    private static List<String> args = properties.getArguments();
 
     public static MutableCapabilities getOptions(){
 

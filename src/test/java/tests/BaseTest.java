@@ -2,9 +2,11 @@ package tests;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import pages.flights_page.FlightsPage;
 import pages.home_page.HomePage;
 
+@Listeners(util.TestListener.class)
 public class BaseTest {
 
     String url = "https://www.enuygun.com/ucak-bileti/";

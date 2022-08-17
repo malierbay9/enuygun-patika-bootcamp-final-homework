@@ -17,7 +17,12 @@ public class FlightsPage extends BasePage {
 
     public FlightsPage chooseDirectFlight(boolean isDirect) {
 
-        waitElementInvisible(filterSection.getDisabledFilter());
+        try {
+            waitElementInvisible(filterSection.getDisabledFilter());
+        }
+        catch (TimeoutException e){
+            System.out.println(e.getMessage());
+        }
 
         if (isDirect) {
             moveToElement(filterSection.getDirectFlightsLabel());

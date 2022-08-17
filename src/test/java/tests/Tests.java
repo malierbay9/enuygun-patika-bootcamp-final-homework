@@ -8,6 +8,7 @@ public class Tests extends BaseTest{
     public void trial(){
 
         homePage.goTo(url)
+                .closeCookie()
                 .selectFrom(from)
                 .selectTo(to)
                 .submitAndSelectDepartureDate(departureDay)

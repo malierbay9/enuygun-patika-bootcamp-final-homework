@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Getter
 public class DateSection {
 
-    private By oneWayCheckBox = By.cssSelector("label.oneWayCheckbox");
+    private By oneWayCheckBox = By.cssSelector("label.oneWayCheckbox input");
     private By departureDayInput = By.id("DepartureDate");
     private By monthAndYearOfLeftCalendar = By.xpath("//div[2]/div/div/strong");
     private By monthAndYearOfRightCalendar = By.xpath("//div[3]/div/div/strong");

@@ -1,7 +1,6 @@
-package models;
+package flight_ticket_case.models;
 
 import lombok.Data;
-
 import java.util.List;
 
 @Data

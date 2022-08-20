@@ -1,13 +1,11 @@
-package util;
+package flight_ticket_case.util;
 
-import models.ConfigProperties;
+import flight_ticket_case.models.ConfigProperties;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Properties;
 
 public class PropertyReader {
 

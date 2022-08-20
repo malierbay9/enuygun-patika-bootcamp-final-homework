@@ -24,7 +24,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.0.3</version>
+            <version>5.2.0</version>
         </dependency>
 
         <dependency>
@@ -59,6 +59,15 @@
             <version>2.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+
     </dependencies>
+
+
 
 </project>

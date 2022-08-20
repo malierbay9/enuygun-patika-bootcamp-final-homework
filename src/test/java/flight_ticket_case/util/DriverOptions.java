@@ -1,14 +1,12 @@
-package util;
+package flight_ticket_case.util;
 
-import models.ConfigProperties;
+import flight_ticket_case.models.ConfigProperties;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Properties;
 
 public class DriverOptions {
 

@@ -11,7 +11,7 @@ import flight_ticket_case.pages.ReservationPage;
 import flight_ticket_case.pages.flights_page.FlightsPage;
 
 @Listeners(TestListener.class)
-public class BaseTest {
+public abstract class BaseTest {
 
 
     String url = "https://www.enuygun.com/ucak-bileti/";

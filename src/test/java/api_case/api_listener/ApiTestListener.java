@@ -1,32 +1,29 @@
-package flight_ticket_case.util;
+package api_case.api_listener;
 
-
+import api_case.test.BaseTest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import flight_ticket_case.pages.BasePage;
-import flight_ticket_case.tests.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.IOException;
 
-
-public class TestListener implements ITestListener {
+public class ApiTestListener implements ITestListener {
 
     Logger logger = LogManager.getLogger(BaseTest.class);
     ExtentHtmlReporter htmlReporter;
     ExtentReports extent;
     ExtentTest test;
 
+
     @Override
     public void onStart(ITestContext context) {
         logger.info("Tests are starting !");
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/extent.html");
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/api_extent.html");
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
     }
@@ -39,28 +36,19 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         logger.info(result.getName()+" PASSED !");
-        test = extent.createTest(result.getName());
-        test.log(Status.PASS,result.getName()+" passed.")
+        test = extent.createTest(result.getName())
+                .log(Status.PASS,result.getName()+" passed.")
                 .info(result.getMethod().getDescription());
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        String failedTest = result.getName();
-        String screenshotsDirectory = "./test-output/failed_test/";
+
         logger.error(result.getName()+" FAILED !");
 
-        BasePage.takeScreenshot(failedTest);
-
-        test = extent.createTest(failedTest);
-
-        try {
-            test.log(Status.FAIL,result.getName()+" failed.")
-                    .addScreenCaptureFromPath(screenshotsDirectory+failedTest+".png")
-                    .info(result.getMethod().getDescription());
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        test = extent.createTest(result.getName())
+                .log(Status.FAIL,result.getName()+" failed.")
+                .info(result.getMethod().getDescription());
     }
 
     @Override
@@ -69,6 +57,7 @@ public class TestListener implements ITestListener {
         test = extent.createTest(result.getName());
         test.log(Status.SKIP,result.getName()+" skipped.")
                 .info(result.getMethod().getDescription());
+
     }
 
     @Override

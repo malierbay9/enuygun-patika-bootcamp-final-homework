@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class BasePage {
+public abstract class BasePage {
 
     protected static WebDriver driver = DriverFactory.getDriver();
     protected WebDriverWait wait;

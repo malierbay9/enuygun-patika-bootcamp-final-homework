@@ -6,7 +6,7 @@ Proje 3 kısımdan oluşmaktadır. Bunlar:
 
 2-Ödev için verilen requestler doğrulutsunda api testlerinin yazıldığı kısım,
 
-3-[patikaapiium.apk] mobil uygulamasına ait otomasyon ve testlerin olduğu kısımlardır.
+3-[patikaapiium.apk](https://github.com/malierbay9/enuygun-patika-bootcamp-final-homework/blob/develop/src/test/resources/app/patikaappium.apk) mobil uygulamasına ait otomasyon ve testlerin olduğu kısımlardır.
 
 ## 1- Flight Ticket Case
 

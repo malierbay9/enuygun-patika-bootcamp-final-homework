@@ -2,6 +2,7 @@ package flight_ticket_case.pages.flights_page;
 
 
 import flight_ticket_case.pages.BasePage;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import static flight_ticket_case.pages.flights_page.FilterSection.*;
 import static flight_ticket_case.pages.flights_page.ResultsSection.*;
@@ -36,13 +37,17 @@ public class FlightsPage extends BasePage {
         waitElementPresent(showAllProviders);
         click(showAllProviders);
 
-
-        //filtrede bulunun havayollarıyla provider değerini kıyaslar. Eşit olunca havayolunu seçer.
-        findElements(providersInFilter).stream().forEach(prvdr -> {
-            if (prvdr.getText().equals(provider)) {
-                prvdr.click();
-            }
-        });
+        try {
+            //filtrede bulunun havayollarıyla provider değerini kıyaslar. Eşit olunca havayolunu seçer.
+            findElements(providersInFilter).stream().forEach(prvdr -> {
+                if (prvdr.getText().equals(provider)) {
+                    prvdr.click();
+                }
+            });
+        }
+        catch (Exception e){
+            System.out.println("İstenilen provider listede mevcut değil.");
+        }
 
         return this;
     }
@@ -109,6 +114,7 @@ public class FlightsPage extends BasePage {
     public boolean checkProvidersExistInFilter(){
         moveToElement(showAirlines);
         click(showAirlines);
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
         return isDisplayed(providersInFilter);
     }
 

@@ -4,6 +4,8 @@ import lombok.Getter;
 import org.openqa.selenium.By;
 import java.time.LocalDate;
 
+//Ana sayfanın uçak biletleri için tarih seçtimiz kısmına ait element locatorlarını barındırır.
+
 @Getter
 public class DateSection {
 
@@ -16,6 +18,8 @@ public class DateSection {
     protected static By daysOnTheLeft = By.xpath("//div[2]/div/table/tbody/tr/td/div");
     protected static By daysOnTheRight = By.xpath("//div[3]/div/table/tbody/tr/td/div");
 
+
+    //Gidiş tarihini bugünden itibaren x gün sonra olarak hesaplayan metot.
     public static LocalDate departureDateCalculator(int days){
 
         LocalDate departureDate = LocalDate.now().plusDays(days);
@@ -23,6 +27,7 @@ public class DateSection {
         return departureDate;
     }
 
+    //Dönüş tarihini parametresinde verilen gidiş tarihinden x gün sonra olarak hesaplayan metot.
     public static LocalDate returnDateCalculator(LocalDate departure,int days){
 
         return departure.plusDays(days);

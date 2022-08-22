@@ -4,6 +4,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+//  Uygulamanın giriş yaptıktan sonra gelen hoş geldiniz sayfasında kullanılacak elementleri ve gerekli metotları barındırır.
+
 public class WelcomePage extends BasePage{
 
     public WelcomePage(WebDriver driver) {

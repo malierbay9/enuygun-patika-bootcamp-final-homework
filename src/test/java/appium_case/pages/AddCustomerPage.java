@@ -3,8 +3,9 @@ package appium_case.pages;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.time.LocalDate;
+
+//  Uygulamanın müştreri ekleme sayfasında kullanılacak elementleri ve gerekli metotları barındırır.
 
 public class AddCustomerPage extends BasePage{
 

@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 import static org.testng.Assert.assertEquals;
 
+//Flight Ticket Case için testlerin bulunduğu sınıf
+
 public class Tests extends BaseTest{
 
     @Test(priority = 0,description = "checks opened page is correct.")
@@ -89,6 +91,7 @@ public class Tests extends BaseTest{
         assertTrue(flightsPage.checkFlightsExist());
     }
 
+    //Bu testin sonucuna tarih ve lokasyon seçtiğimiz kısımdaki aktarma seçeneği butonu doğru çalışmamaktadır.
     @Test(priority = 10,description = "Checks if connected/non-connected flights button on the homepage working.")
     public void checkIfConnectedFlightsButtonWorking(){
         homePage.goTo(url)
@@ -176,11 +179,11 @@ public class Tests extends BaseTest{
 
         flightsPage.chooseDirectFlight(isDirect)
                 .chooseProvider(provider)
-                .chooseDeparture()
-                .chooseReturn()
+                .chooseDepartureFlight()
+                .chooseReturnFlight()
                 .selectTicket();
 
-        assertEquals(reservationPage.getDepartureProvider(),provider);
+        assertEquals(flightInfoPage.getDepartureProvider(),provider);
 
     }
 
@@ -198,11 +201,11 @@ public class Tests extends BaseTest{
 
         flightsPage.chooseDirectFlight(isDirect)
                 .chooseProvider(provider)
-                .chooseDeparture()
-                .chooseReturn()
+                .chooseDepartureFlight()
+                .chooseReturnFlight()
                 .selectTicket();
 
-        assertEquals(reservationPage.getReturnProvider(),provider);
+        assertEquals(flightInfoPage.getReturnProvider(),provider);
     }
 
 }

@@ -3,9 +3,10 @@ package appium_case.tests;
 
 import appium_case.utils.DP;
 import org.testng.annotations.Test;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+
+//Mobil Uygulamamızın teslerinin olduğu sınıftır.
 
 public class Tests extends BaseTest {
 

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+//  Uygulamanın müşteriler sayfasında kullanılacak elementleri ve gerekli metotları barındırır.
+
 public class CustomersPage extends BasePage{
 
     public CustomersPage(WebDriver driver) {
@@ -24,6 +26,7 @@ public class CustomersPage extends BasePage{
     @AndroidFindBy(id = "idTVtext")
     private WebElement customerInfo;
 
+    //Parametrede aldığı telefon numarası değerine göre müşteriyi bulur.
     public CustomersPage findCustomer(String number){
 
         searchBtn.click();
@@ -44,6 +47,7 @@ public class CustomersPage extends BasePage{
         return this;
     }
 
+    //Parametrede aldığı telefon numarası değerine göre müşterinin var olup olmadığını döndürür
     public boolean checkCustomerExist(String number){
 
         searchBtn.click();

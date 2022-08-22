@@ -1,11 +1,11 @@
 package flight_ticket_case.util;
 
-import flight_ticket_case.models.ConfigProperties;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
-
 import java.io.FileInputStream;
 import java.io.IOException;
+
+// Bu sınıf ile enuygun_config.yml dosyasındaki propertyleri okuyup ConfigProperties nesnesi haline getirip kullanabiliyoruz.
 
 public class PropertyReader {
 

@@ -9,6 +9,9 @@ import java.util.Locale;
 import static flight_ticket_case.pages.home_page.DestinationSection.*;
 import static flight_ticket_case.pages.home_page.DateSection.*;
 
+//Ana sayfanın page object sınıfıdır. Testlerde kullanılacak metotları ve ana sayfadaki gerekli elementlerin locatolarının bir kısmını içerir.
+//Locatorların geri kalanları DateSection ve DestinationSection sınıflarının static olarak import edilmesiyle kullanır.
+
 public class HomePage extends BasePage {
 
     private By closeCookieBtn = By.xpath("//div[@id='CookieAlert']/button");
@@ -43,6 +46,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    //nereden gidileceğini seçer
     public HomePage selectFrom(String from){
 
         sendKeys(fromTextBox, from);
@@ -57,7 +61,8 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage selectTo(String to) {//throw excp
+    //nereye gidileceğini seçer
+    public HomePage selectTo(String to) {
 
         sendKeys(toTextBox, to);
         waitElementVisible(firstResultOfTo);
@@ -66,6 +71,11 @@ public class HomePage extends BasePage {
         return this;
     }
 
+
+    /*      Parametresinde aldığı monthAndYear Stringini , sayfada açılan takvimlerin önce soldaki olanı için
+    *   üst kısmında yer alan Ay ve Yıl Texti ile kıyaslar. Aynı ise parametresinde aldığı 'day' değerine eşit
+    *   gün elementine tıklayıp tarihi seçer. Eğer sol takvim doğru değilse sağdaki takvim için aynı işlemi tekrarlar.
+    *   Bu da doğru değilse Ay ve Yıl doğru olana kadar takvimi ilerletir ve tarihi seçer.   */
     public void selectDate(int day, String monthAndYear) {
 
         waitElementVisible(monthAndYearOfLeftCalendar);
@@ -95,13 +105,13 @@ public class HomePage extends BasePage {
 
     public HomePage submitAndSelectDepartureDate(int daysAfterToday) {
 
-        departureDate = departureDateCalculator(daysAfterToday);
-
+        departureDate = departureDateCalculator(daysAfterToday);    //departureDateCalculator bize YYYY-MM-DD formatında tarih döndürür.
+                                                                    //Bu tarihi kullanabileceğimiz formata çevirip 'Gün' ve 'Ay-Yıl' içeren 2 değişken elde ederiz.
         int departureDay = departureDate.getDayOfMonth();
         String departureMonthYear = departureDate.getMonth().getDisplayName(TextStyle.FULL, new Locale("tr"))
                 + " " + departureDate.getYear();
 
-        selectDate(departureDay, departureMonthYear);
+        selectDate(departureDay, departureMonthYear);       //'Gün' ve 'Ay-Yıl' içeren değişkenleri selectDate() metoduna vererek tarihi seçeriz.
 
         return this;
     }
@@ -111,8 +121,10 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    //Dönüş tarihi seçimi de aynı gidiş tarihi seçimi gibidir.
     public HomePage submitAndSelectReturnDate(int daysAfterDeparture) {
 
+        //Dönüş takvimini açmak için 'Tek-Yön' butonunu kapatırız.
         if(driver.findElement(oneWayCheckBox).isSelected()){
             click(oneWayCheckBox);
         }

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+//Bu sınıf android driver için gerekli capabilityleri json dosyasından okuyup DesiredCapabilities nesnesi olarak elde etmemizi sağlar.
 public class CapabilitySettings {
 
     private static final ObjectMapper mapper = new ObjectMapper();
@@ -19,6 +20,7 @@ public class CapabilitySettings {
 
     }
 
+    //json dosyasından okunan capabilityleri önce map e sonra onu DesiredCapabilities nesnesine çeviririz.
     public static DesiredCapabilities getDesiredCapsFromJson(String jsonPath){
         BufferedReader reader;
 

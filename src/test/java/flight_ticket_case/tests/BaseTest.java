@@ -7,10 +7,12 @@ import flight_ticket_case.util.TestListener;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
-import flight_ticket_case.pages.ReservationPage;
+import flight_ticket_case.pages.FlightInfoPage;
 import flight_ticket_case.pages.flights_page.FlightsPage;
 
-@Listeners(TestListener.class)
+// Testler çalışmadan önce (page objectlerinin instance edilmesi gibi) ve testler bittikten sonra yapılması gereken işlemlerin yapıldığı sınıf.
+
+@Listeners(TestListener.class)      //Listener sınıfımızı entegre ediyoruz.
 public abstract class BaseTest {
 
 
@@ -20,16 +22,17 @@ public abstract class BaseTest {
     String provider = "Türk Hava Yolları";
     int departureDay = 5;
     int returnDay = 10;
-    boolean isDirect = true;
+    boolean isDirect = true;        //gerekli parametreler
+
     HomePage homePage;
     FlightsPage flightsPage;
-    ReservationPage reservationPage;
+    FlightInfoPage flightInfoPage;
 
     @BeforeClass
     public void setUp(){
         homePage = new HomePage();
         flightsPage = new FlightsPage();
-        reservationPage = new ReservationPage();
+        flightInfoPage = new FlightInfoPage();
     }
 
     @AfterClass

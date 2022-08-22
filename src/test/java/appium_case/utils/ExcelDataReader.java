@@ -6,7 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.IOException;
 
-
+//Excel dosyasından data okumayı sağlayan metotları içeren sınıftır.
 public class ExcelDataReader {
 
     private static XSSFWorkbook workbook;
@@ -43,6 +43,7 @@ public class ExcelDataReader {
             return (int)sheet.getRow(row).getCell(col).getNumericCellValue();
     }
 
+    //Bu metodu DataProvider metodunda kullanacağız.
     public Object[][] getData(){
 
         int rowCount = getRowCount();

@@ -11,6 +11,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+//Appium projesinde kullanacağımız listener sınıfı
+//Metotlara loglama ve raporlama toolları entegre edilmiştir.
 
 public class AndroidListener implements ITestListener {
 
@@ -23,7 +25,7 @@ public class AndroidListener implements ITestListener {
     @Override
     public void onStart(ITestContext context) {
         logger.info("Tests are starting !");
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/appium_extent.html");
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/appium_case_reports.html");
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
     }

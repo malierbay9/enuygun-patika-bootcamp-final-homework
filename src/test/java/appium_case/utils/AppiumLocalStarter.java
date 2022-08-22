@@ -6,6 +6,8 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 import java.io.File;
 
+
+//Appiumu local olarak çalıştırmayı sağlayan sınıftır.
 public class AppiumLocalStarter {
 
     private static final AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\malie\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))

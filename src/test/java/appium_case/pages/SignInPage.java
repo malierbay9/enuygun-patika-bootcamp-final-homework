@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+//  Uygulamanın giriş yap sayfasında kullanılacak elementleri ve gerekli metotları barındırır.
+
 public class SignInPage extends BasePage{
 
     public SignInPage(WebDriver driver) {
@@ -56,6 +58,7 @@ public class SignInPage extends BasePage{
 
     public String getErrorText(){
 
+        //Bu elementin default text deperi 'Error View' şeklindedir. Hata anında bu değer değişiyor. Bu değişene kadar bekleriz.
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(By.id("signInErrorView"),"Error View")));
 
         return errorElement.getText();

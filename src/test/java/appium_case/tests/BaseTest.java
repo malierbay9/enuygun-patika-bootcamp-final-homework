@@ -11,10 +11,11 @@ import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyE
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.annotations.*;
-
 import java.time.LocalDate;
 
-@Listeners(AndroidListener.class)
+// Testler çalışmadan önce (page objectlerinin instance edilmesi gibi) ve testler bittikten sonra yapılması gereken işlemlerin yapıldığı sınıf.
+
+@Listeners(AndroidListener.class)   //Listener sınıfımızı entegre ediyoruz.
 public abstract class BaseTest {
 
     private WebDriver driver;
@@ -33,12 +34,13 @@ public abstract class BaseTest {
     @BeforeClass
     public void setUp() {
         this.address = "ankara";
-        this.name = "alex";
+        this.name = "deneme";
         this.phoneNumber = "905005005050";
         this.receiveDate = LocalDate.now();
         try {
-            AppiumLocalStarter.start();
-        } catch (AppiumServerHasNotBeenStartedLocallyException e) {
+            AppiumLocalStarter.start();        //Appium Local starter eğer çalışıyorsa appium u ayrıca açmayınız ya da bunu kapatınız.
+        }
+        catch (AppiumServerHasNotBeenStartedLocallyException e) {
             System.out.println(e.getMessage());
         }
 
@@ -49,7 +51,7 @@ public abstract class BaseTest {
 
         try {
 
-            driver = DriverManager.setupDriver();
+            driver = DriverManager.setupDriver();   //Testlerin birbirinden bağımsız olması için driverı her test öncesi intance ediyoruz. Test bitince sonlandırıyoruz.
             signInPage = new SignInPage(driver);
             welcomePage = new WelcomePage(driver);
             addCustomerPage = new AddCustomerPage(driver);

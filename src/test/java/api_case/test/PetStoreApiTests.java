@@ -7,8 +7,9 @@ import io.restassured.internal.http.HttpResponseException;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.List;
+
+//Pet Store Api Testlerinin olduğu sınıf.
 
 public class PetStoreApiTests extends BaseTest {
 
@@ -43,6 +44,7 @@ public class PetStoreApiTests extends BaseTest {
 
     }
 
+    //Yanlış input girildiğinde response status code 400 gerekirken 200 oluyor.
     @Test(priority = 1,description = "Checks if there is an error when requesting with wrong status input.")
     public void checkIfResponseStatus400WhenInputIsWrong(){
         status = "dead";

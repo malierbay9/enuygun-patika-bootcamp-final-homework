@@ -6,12 +6,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import static flight_ticket_case.pages.flights_page.FilterSection.*;
 import static flight_ticket_case.pages.flights_page.ResultsSection.*;
 
+//Uçuşların olduğu sayfanın page object sınıfıdır.Testlerde kullanılacak metotları içerir.
+//Locatorları FilterSection ve ResultsSection sınıflarının static olarak import edilmesiyle kullanır.
+
 public class FlightsPage extends BasePage {
 
     public FlightsPage chooseDirectFlight(boolean isDirect) {
 
-        waitElementInvisible(disabledFilter);
+        waitElementInvisible(disabledFilter);   //filtreye erişmek için bu elementin yok olmasını bekleriz
 
+        //isDirect in değerine göre aktarmalı ya da aktarmasız uçuşları filtreler
         if (isDirect) {
             moveToElement(directFlightsLabel);
             click(onlyDirectFlights);
@@ -32,9 +36,10 @@ public class FlightsPage extends BasePage {
         waitElementPresent(showAllProviders);
         click(showAllProviders);
 
+
+        //filtrede bulunun havayollarıyla provider değerini kıyaslar. Eşit olunca havayolunu seçer.
         findElements(providersInFilter).stream().forEach(prvdr -> {
             if (prvdr.getText().equals(provider)) {
-                //actions.moveToElement(prvdr).perform();
                 prvdr.click();
             }
         });
@@ -42,6 +47,8 @@ public class FlightsPage extends BasePage {
         return this;
     }
 
+    //Görüntülenmeyen diğer uçuşların hepsinin görüntülenmesini sağlar.
+    //Sayfada 'Aynı Fiyatlı Diğer Uçuşlar' butonu olduğu sürece ona tıklar.
     public FlightsPage expandMore() {
         int i = 0;
 
@@ -66,7 +73,7 @@ public class FlightsPage extends BasePage {
         return this;
     }
 
-    public FlightsPage chooseDeparture() {
+    public FlightsPage chooseDepartureFlight() {
 
         waitElementsVisible(departureFlights);
         clickFromList(departureFlights, 0);
@@ -74,7 +81,7 @@ public class FlightsPage extends BasePage {
         return this;
     }
 
-    public FlightsPage chooseReturn() {
+    public FlightsPage chooseReturnFlight() {
 
         waitElementInvisible(overlay);
         waitElementsVisible(returnFlights);
@@ -85,7 +92,7 @@ public class FlightsPage extends BasePage {
 
     public void selectTicket() {
 
-        waitElementPresent(returnFlightRadioBtn);
+        waitElementPresent(returnFlightRadioBtn);   //dönüş uçuşunun seçili olmasını bekler
         click(chooseTicketBtn);
 
     }
@@ -94,6 +101,7 @@ public class FlightsPage extends BasePage {
         return isDisplayed(fligtPairs);
     }
 
+    //Aktarmalı uçuş var mı diye kontrol eder.
     public boolean checkConnectedFlightsExist(){
         return isDisplayed(connectedFlightInfo);
     }

@@ -11,8 +11,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+//Bu sınıf diğer page object sınıflarından extend edilir.
+//Kullanacağımız driverın instance edildiği ve alt sınıflarda kullanılıp kolaylık sağlayacak metotların olduğu yerdir.
 
 public abstract class BasePage {
+
+    /*  driverı static tanımlıyoruz böylece sadece bir kez instance oluyor.
+    * Bu şekilde page nesnelerini her instance ettiğimiz tekrar tekrar sayfa açılmayacak.   */
 
     protected static WebDriver driver = DriverFactory.getDriver();
     protected WebDriverWait wait;
@@ -27,6 +32,7 @@ public abstract class BasePage {
         return driver;
     }
 
+    //Listener sınıfında kullandığımız ekran görüntüsü alma metodu
     public static void takeScreenshot(String screenShotName){
 
         TakesScreenshot screenshot = (TakesScreenshot) driver;

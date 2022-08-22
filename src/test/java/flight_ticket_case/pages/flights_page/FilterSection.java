@@ -3,6 +3,9 @@ package flight_ticket_case.pages.flights_page;
 import lombok.Getter;
 import org.openqa.selenium.By;
 
+
+//Uçuş paketlerinin olduğu sayfanın filtre kısmına ait element locatorlarını barındırır.
+
 @Getter
 public class FilterSection {
     protected static By directFlightsLabel = By.xpath("//div[@class='custom-controls-stacked']/label[1]");

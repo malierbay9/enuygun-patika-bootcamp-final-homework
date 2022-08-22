@@ -3,6 +3,8 @@ package flight_ticket_case.pages.home_page;
 import lombok.Getter;
 import org.openqa.selenium.By;
 
+//Ana sayfanın uçak biletleri için lokasyon seçtimiz kısmına ait element locatorlarını barındırır.
+
 @Getter
 public class DestinationSection {
 

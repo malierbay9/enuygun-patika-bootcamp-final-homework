@@ -6,9 +6,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.List;
 
+//Grocery Api Testlerinin olduğu sınıf.
 
 public class GroceryApiTests extends BaseTest{
 

@@ -3,6 +3,8 @@ package flight_ticket_case.pages.flights_page;
 import lombok.Getter;
 import org.openqa.selenium.By;
 
+//Aranan kriterlere sahip uçuşların olduğu kısmına ait element locatorlarını barındırır.
+
 @Getter
 public class ResultsSection {
 

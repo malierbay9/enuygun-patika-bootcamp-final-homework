@@ -12,9 +12,10 @@ import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import java.io.IOException;
 
+//Projede kullanacağımız listener sınıfı
+//Metotlara loglama ve raporlama toolları entegre edilmiştir.
 
 public class TestListener implements ITestListener {
 
@@ -26,7 +27,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onStart(ITestContext context) {
         logger.info("Tests are starting !");
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/extent.html");
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/flight_case_reports.html");
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
     }
@@ -50,13 +51,13 @@ public class TestListener implements ITestListener {
         String screenshotsDirectory = "./test-output/failed_test/";
         logger.error(result.getName()+" FAILED !");
 
-        BasePage.takeScreenshot(failedTest);
+        BasePage.takeScreenshot(failedTest);    //test başarısız olduğunda ekran görüntüsü alma
 
         test = extent.createTest(failedTest);
 
         try {
             test.log(Status.FAIL,result.getName()+" failed.")
-                    .addScreenCaptureFromPath(screenshotsDirectory+failedTest+".png")
+                    .addScreenCaptureFromPath(screenshotsDirectory+failedTest+".png")   //alınan ekran görüntüsünü rapora ekleme
                     .info(result.getMethod().getDescription());
         } catch (IOException e) {
             System.out.println(e.getMessage());

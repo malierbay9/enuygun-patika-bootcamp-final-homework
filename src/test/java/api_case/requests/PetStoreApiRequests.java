@@ -8,11 +8,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-
 import java.util.ArrayList;
-
 import static io.restassured.RestAssured.*;
 
+//Pet Store Requestlerinin oluşturan ve onların responselarını döndüren metotları içerir.
 
 public class PetStoreApiRequests {
 
@@ -22,7 +21,7 @@ public class PetStoreApiRequests {
         baseURI = "https://petstore.swagger.io/v2";
     }
 
-
+    //  GET/pet/findByStatus
     public Response getPetFindByStatus(String status){
 
         response = given()
@@ -36,7 +35,7 @@ public class PetStoreApiRequests {
         return response;
     }
 
-
+    // GET/pet/{petId}
     public Response getPetById(long id){
 
         response = given()
@@ -52,6 +51,7 @@ public class PetStoreApiRequests {
 
     }
 
+    //  POST/pet
     public void postPet(long id,String name,String status) throws JsonProcessingException {
         Pet pet = new Pet(id,new Category(),name,new ArrayList<String>(),new ArrayList<Tag>(),status);
 
@@ -59,17 +59,17 @@ public class PetStoreApiRequests {
 
         given()
                 .header("Content-Type","application/json")
-                .body(body).
-        when()
-                .post(baseURI+PetStoreEndPoints.ADD_PET).
-        then()
+                .body(body)
+                .when()
+                .post(baseURI+PetStoreEndPoints.ADD_PET)
+                .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
                 .extract().response();
 
     }
 
-
+    //  POST/pet/{petId}
     public Response postUpdatePet(long id,String name,String status){
 
         response = given()
@@ -86,7 +86,7 @@ public class PetStoreApiRequests {
         return response;
     }
 
-
+    // DELETE/pet/{petId}
     public Response deletePetById(long id,String apiKey){
 
         response = given()

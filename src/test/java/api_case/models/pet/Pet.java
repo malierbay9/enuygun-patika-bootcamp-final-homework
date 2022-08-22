@@ -3,8 +3,9 @@ package api_case.models.pet;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
+
+//Pet Store requestlerinin response bodylerini çevirdiğimiz ya da requestlerde kullanacağımız bodyleri modellediğimiz sınıf.
 
 @Data
 @AllArgsConstructor

@@ -1,6 +1,5 @@
 package flight_ticket_case.util;
 
-import flight_ticket_case.models.ConfigProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +8,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
+
+//Kullanacağımız driverı elde edeceğimiz sınıf
 
 public class DriverFactory {
 
@@ -20,7 +21,7 @@ public class DriverFactory {
     private static int pageWait = properties.getPageLoadTimeout();
     private static MutableCapabilities capabilities = DriverOptions.getOptions();
 
-
+    //enuygun_config.yml dosyasında drivertype parametresine verdiğimiz değere göre gerekli driverı döndüren metot
     public static WebDriver getDriver(){
 
         if(browserName.equalsIgnoreCase("chrome")){
@@ -37,7 +38,7 @@ public class DriverFactory {
             driver.manage().window().maximize();
         }
         else{
-
+            throw new NullPointerException("You made a mistake in the drivertype property in enuygun_config.yaml file");
         }
 
         driver.manage().timeouts().implicitlyWait(impWait, TimeUnit.SECONDS);

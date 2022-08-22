@@ -8,6 +8,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
+//Android driverımızı elde ettiğimiz sınıftır.
 @Data
 public class DriverManager {
     private static DesiredCapabilities capabilities;

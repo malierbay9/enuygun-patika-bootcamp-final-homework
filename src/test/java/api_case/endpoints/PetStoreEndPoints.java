@@ -1,5 +1,8 @@
 package api_case.endpoints;
 
+
+//Pet Store requestlerinde kullanılacak endpointleri içerir.
+
 public class PetStoreEndPoints {
     public static String ADD_PET = "/pet";
     public static String FIND_BY_STATUS = "/pet/findByStatus";

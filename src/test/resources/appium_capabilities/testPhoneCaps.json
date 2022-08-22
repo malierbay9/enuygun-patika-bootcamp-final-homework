@@ -1,0 +1,8 @@
+{
+  "platformName": "Android",
+  "appium:deviceName": "testPhone",
+  "appium:automationName": "UiAutomator2",
+  "appium:avd": "testPhone",
+  "app": "C:/Users/malie/IdeaProjects/final/src/test/resources/app/patikaappium.apk",
+  "appium:udid": "emulator-5554"
+}

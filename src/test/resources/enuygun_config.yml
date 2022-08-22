@@ -1,0 +1,7 @@
+implicitlyWait: 10
+pageLoadTimeout: 10
+drivertype: chrome
+arguments:
+  - start-maximized
+  - disable-notifications
+  - --no-sandbox
